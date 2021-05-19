@@ -1,7 +1,7 @@
 import { BrowserRouter as Router,Switch,Route,Link, BrowserRouter } from 'react-router-dom';
 import classes from './MainHeader.css';
-import List from './List';
-import Form from './Form';
+import List from '../ListFolder/List';
+import MainForm from '../FormFolder/MainForm';
 
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
                 <Link style={{color:'#333'}}to="/List">List</Link>
               </li>
               <li>
-                <Link to="/Form">Form</Link>
+                <Link to="/MainForm">Form</Link>
               </li>
            
             </ul>

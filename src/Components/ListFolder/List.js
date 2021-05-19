@@ -1,10 +1,10 @@
 import React from "react";
 import Table from 'react-bootstrap/Table'
 import Container from 'react-bootstrap/Container';
-import listData from "../data.json";
+import listData from "../../data.json";
 import {FaCheckCircle,FaTimesCircle} from 'react-icons/fa';
-import ReactDOM from 'react-dom'
-import "../App.css";
+import ReactDOM from 'react-dom';
+import "../../../src/App.css";
 
 // export const List = () => {
 //     return (
