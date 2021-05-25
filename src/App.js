@@ -17,9 +17,9 @@ function App() {
           <div className="col-md-7 my-auto justifyContent:center">
           </div>
     <div>
-        <div>
+        <div style={{}}>
           <nav>
-            <p>Test Application     <Link style={{color:'#000000'}} to="/List">List</Link>      <Link style={{color:'#000000'}}to="/MainForm">Form</Link></p> 
+            <p>Test Application        <Link style={{color:'#000000',fontSize:"15px"}} to="/List">List</Link>     <Link style={{color:'#000000',fontSize:"15px"}}to="/MainForm">Form</Link></p> 
           </nav>
   
           <Switch>

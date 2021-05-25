@@ -123,7 +123,7 @@
 // export default MainForm;
 import React,{Component,useState} from "react";
 import Modal from "react-modal";
-import { Formik, Form, FormikProps,Field,ErrorMessage,Button} from "formik";
+import { Formik, Form, FormikProps,Field,ErrorMessage,Button,} from "formik";
 import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TextField } from "./TextField";
@@ -138,18 +138,18 @@ const validate = Yup.object({
 
     firstName: Yup.string()
       .max(10, "Must be 15 characters or less")
-      .required("Required"),
+      .required("firstName is a required field"),
 
     lastName: Yup.string()
       .max(20, "Must be 20 characters or less")
-      .required("Required"),
+      .required("lastName is a required field"),
 
     email: Yup.string()
     .email("Email is invalid")
-    .required("Required"),
+    .required("email is a required field"),
 
     favouriteColor: Yup.string()
-
+    .required("favoriteColor is a required field")
   });
   return (
     <Formik
@@ -157,13 +157,18 @@ const validate = Yup.object({
       lastName: "",
       email: "",
       favouriteColor: ""}}   validationSchema ={validate}>
-        {({values})=>(
-       
+        {({values,errors})=>(
+        
         <div>
           <Form>
             <TextField label="First Name" name="firstName" type="text" />
+            {!errors.firstName && (<div style={{color:"green",fontSize:"12px"}}>Looks Good!</div>)}
             <TextField label="Last Name" name="lastName" type="text" />
-            <TextField label="Email" name="email" type="email" /><br></br>
+            {!errors.lastName && (<div style={{color:"green",fontSize:"12px"}}>Looks Good!</div>)}
+            <TextField label="Email" name="email" type="email" />
+            {!errors.email && (<div style={{color:"green",fontSize:"12px"}}>Looks Good!</div>)}
+            <br></br>
+
             <Field style=
             {{width:"81em",
             height:"2.3em",
@@ -176,6 +181,7 @@ const validate = Yup.object({
              <option value="green">Green</option>
              <option value="blue">Blue</option>
            </Field>
+           {!errors.select && (<div style={{color:"green",fontSize:"12px"}}>Looks Good!</div>)}
 
 <div className="App">
       <button style = {{background: '#0096FF',
@@ -187,9 +193,9 @@ const validate = Yup.object({
       <div>
         
         <Modal style ={{overlay:{position:'fixed',
-      top:'1em',
+      top:'2em',
       bottom:'-1em',
-      left:'-3em',
+      left:'-2em',
       right:'5em',
       margin: '15% auto',
       padding: '1px',
@@ -201,8 +207,12 @@ const validate = Yup.object({
         onRequestClose={toggleModal}
         contentLabel="My  Modal"
 
-        
-><h2>Welcome   {values.firstName}   {values.lastName}</h2><hr></hr>
+      > 
+
+  <h2>Welcome   {values.firstName}   {values.lastName}</h2>
+
+
+<hr style= {{width: "100%", color: "black", height: "1px" }}></hr>
         <div><h8>Typically this would go to a server but here is good enough</h8><br></br>
 <h8>Fancy colored email address below</h8></div>
 
@@ -216,6 +226,7 @@ values.favouriteColor === 'blue'
  }}>
    {values.email}
  </div>
+
 <div className="App"><hr/>
         <button style={{position:'absolute',
   background: '#0096FF',
@@ -237,3 +248,4 @@ values.favouriteColor === 'blue'
   );
 }
 export default MainForm;
+
