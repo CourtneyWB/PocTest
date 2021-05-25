@@ -60,10 +60,6 @@
      
 // <br></br>           
 
-          
-        
-     
-
 // <div className="App">
 //       <button style = {{background: '#0096FF',
 //   border: '#67C8FF',color:'white',margin:'1.2rem',
@@ -188,7 +184,9 @@ const validate = Yup.object({
 
       {/* <div><Modal style ={{overlay:{position:'absolute',top:'1em',bottom:'35em',left:'36em',right:'52em'
       }}} */}
-      <div><Modal style ={{overlay:{position:'fixed',
+      <div>
+        
+        <Modal style ={{overlay:{position:'fixed',
       top:'1em',
       bottom:'-1em',
       left:'-3em',
@@ -196,11 +194,14 @@ const validate = Yup.object({
       margin: '15% auto',
       padding: '1px',
       width: '30%', 
+      
     }}}
       
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My  Modal"
+
+        
 ><h2>Welcome   {values.firstName}   {values.lastName}</h2><hr></hr>
         <div><h8>Typically this would go to a server but here is good enough</h8><br></br>
 <h8>Fancy colored email address below</h8></div>
