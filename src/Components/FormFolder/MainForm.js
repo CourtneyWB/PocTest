@@ -83,14 +83,16 @@ const validate = Yup.object({
         onRequestClose={toggleModal}
         contentLabel="My  Modal"
       > 
-        <div><button style={{position:'absolute',
+        <button style={{position:'absolute',
   background: 'white',
   border: '#67C8FF',
   color:'grey',
-  margin:'1.4rem',
+  margin:'1.2rem',
   padding: '1px 1px',
   right:'-1em',
- }}onClick={toggleModal}>x </button></div>
+  top:'-1em',
+ }}onClick={toggleModal}>X</button>
+ 
 
   <h2 style={{fontSize:"24px"}}>Welcome   {values.firstName}   {values.lastName}         
 </h2>
@@ -119,6 +121,7 @@ values.favouriteColor === 'blue'
   margin:'5%',
   padding: '6px 16px',
   right:'-1em',
+  bottom:'-1em',
   display: 'inline',borderRadius:'4px'}}onClick={toggleModal}>Close </button></div>
 <div></div>
       </Modal>
